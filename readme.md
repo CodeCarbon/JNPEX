@@ -1,4 +1,4 @@
-# JNPEX Documentation
+# JSPEX Documentation
 
 JNPEX is straight forward libary to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys.
 
