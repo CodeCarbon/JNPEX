@@ -3,7 +3,7 @@
 
 <div align="center">
     
-[![NPM](https://nodei.co/npm/jnpex.png?)](https://npmjs.com/package/jexpex)
+[![NPM](https://nodei.co/npm/jnpex.png?)](https://npmjs.com/package/jenpex)
 
 </div>
 
