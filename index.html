@@ -1,0 +1,104 @@
+<h1>JNPEX Documentation</h1>
+<p>JNPEX is straight forward libary to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys.</p>
+<h2>Installation</h2>
+<p>You can install JNPEX via npm:</p>
+<pre><code class="language-bash">npm install jspex
+</code></pre>
+<p>Then, require the module in your Node.js files:</p>
+<pre><code class="language-javascript">const JNPEX = require(&#39;jspex&#39;);
+</code></pre>
+<h2>Usage</h2>
+<h3>Constructor</h3>
+<p>The <code>JNPEX</code> class constructor creates a new instance for JSON file operations.</p>
+<pre><code class="language-javascript">const db = new JNPEX(filePath, useCache);
+</code></pre>
+<ul>
+<li><code>filePath</code> (string, optional): The path to the JSON file. If not provided, a default file named <code>JSPEX.JSON</code> will be created.</li>
+<li><code>useCache</code> (boolean, optional, default: true): Specifies whether to use caching to improve performance by reducing the need to read the file every time.</li>
+</ul>
+<h3>Methods</h3>
+<h4><code>keyExists(key)</code></h4>
+<p>Checks if a key exists in the JSON file.</p>
+<pre><code class="language-javascript">db.keyExists(&quot;keyName&quot;);
+</code></pre>
+<ul>
+<li><code>key</code> (string): The key to check for existence.</li>
+</ul>
+<h4><code>getAll()</code></h4>
+<p>Retrieves all data from the JSON file.</p>
+<pre><code class="language-javascript">db.getAll();
+</code></pre>
+<h4><code>get(key)</code></h4>
+<p>Retrieves the value associated with a key from the JSON file.</p>
+<pre><code class="language-javascript">db.get(&quot;keyName&quot;);
+</code></pre>
+<ul>
+<li><code>key</code> (string): The key to retrieve the value of.</li>
+</ul>
+<h4><code>erase()</code></h4>
+<p>Erases all data from the JSON file.</p>
+<pre><code class="language-javascript">db.erase();
+</code></pre>
+<h4><code>delete(key)</code></h4>
+<p>Deletes a key and its associated value from the JSON file.</p>
+<pre><code class="language-javascript">db.delete(&quot;keyName&quot;);
+</code></pre>
+<ul>
+<li><code>key</code> (string): The key to delete.</li>
+</ul>
+<h4><code>set(key, value)</code></h4>
+<p>Sets a key-value pair in the JSON file.</p>
+<pre><code class="language-javascript">db.set(&quot;keyName&quot;, value);
+</code></pre>
+<ul>
+<li><code>key</code> (string): The key to set.</li>
+<li><code>value</code> (any): The value to set.</li>
+</ul>
+<h4><code>update(key, callback)</code></h4>
+<p>Updates the value of a key using a callback function.</p>
+<pre><code class="language-javascript">db.update(&quot;keyName&quot;, (value) =&gt; value + 1);
+</code></pre>
+<ul>
+<li><code>key</code> (string): The key to update.</li>
+<li><code>callback</code> (function): The callback function to update the key value.</li>
+</ul>
+<h2>Example</h2>
+<pre><code class="language-javascript">//Import the package
+const JNPEX = require(&#39;jspex&#39;);
+
+// Initialize a new JNPEX instance with a file named &quot;contacts.json&quot; with caching true
+const addressBook = new JNPEX(&quot;contacts.json&quot;, true); // useCache is true by default.
+
+// Add a new contact
+addressBook.set(&quot;JohnDoe&quot;, {
+    name: &quot;John Doe&quot;,
+    email: &quot;john@example.com&quot;,
+    phone: &quot;+1234567890&quot;,
+    address: &quot;123 Main St, City&quot;
+});
+
+// Update John Doe&#39;s email address
+addressBook.update(&quot;JohnDoe&quot;, (contact) =&gt; {
+    contact.email = &quot;john.doe@example.com&quot;;
+    return contact;
+});
+
+// Retrieve John Doe&#39;s contact information
+const johnDoeContact = addressBook.get(&quot;JohnDoe&quot;);
+console.log(&quot;John Doe&#39;s Contact Information:&quot;, johnDoeContact);
+
+// Check if a contact exists
+const isContactExisting = addressBook.keyExists(&quot;JaneSmith&quot;);
+console.log(&quot;Is Jane Smith&#39;s contact existing:&quot;, isContactExisting);
+
+// Delete a contact
+addressBook.delete(&quot;JohnDoe&quot;);
+
+// Erase all contacts from the address book
+addressBook.erase();
+</code></pre>
+<h2>Error Handling</h2>
+<ul>
+<li>If the file being used by another program or inaccessible, an error will be thrown.</li>
+<li>If a key doesn&#39;t exist during delete or update operations, an error will be thrown.</li>
+</ul>
