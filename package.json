@@ -1,11 +1,11 @@
 {
-  "name": "jnpex",
+  "name": "jspex",
   "version": "2.0.0",
   "description": "JSON Local storage for quick and straightforward use cases.",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "jest "
+    "test": "jest"
   },
   "author": "CodeCarbon",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "license": "ISC",
   "tags": [
-    "jnpex",
+    "jspex",
     "json-database",
     "json-operations",
     "json-io",
@@ -26,7 +26,8 @@
     "file-handling",
     "file-operations",
     "json-file",
-    "json-handling"
+    "json-handling",
+    "jnpex"
   ],
   "devDependencies": {
     "jest": "^29.7.0"

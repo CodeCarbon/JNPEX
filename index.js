@@ -2,9 +2,9 @@ const fs = require('fs');
 /**
  * A class for handling JSON file operations.
  */
-class JNPEX {
+class JSPEX {
     /**
-     * Constructs a new JNPEX instance.
+     * Constructs a new JSPEX instance.
      * @param {string} filePath - The path to the JSON file.
      * @param {boolean} [useCache=true] - Whether to use caching.
      */
@@ -40,7 +40,7 @@ class JNPEX {
      * @param {string} key - The key to check.
      * @returns {boolean} - Whether the key exists.
      * @example
-     * const db = new JNPEX();
+     * const db = new JSPEX();
      * console.log(db.keyExists("name")); // true
     */
     keyExists(key) {
@@ -50,7 +50,7 @@ class JNPEX {
     * Gets all the data from the file.
     * @returns {Object} - The data from the file.
     * @example
-    * const db = new JNPEX();
+    * const db = new JSPEX();
     * console.log(db.getAll()); // {name: "John", age: 20}
     */
     getAll() {
@@ -61,7 +61,7 @@ class JNPEX {
     * @param {string} key - The key to get the value of.
     * @returns {any} - The value of the key.
     * @example
-    * const db = new JNPEX();
+    * const db = new JSPEX();
     * console.log(db.get("name")); // "John"
     * console.log(db.get("age")); // 20
     * console.log(db.get("location")); // null
@@ -73,7 +73,7 @@ class JNPEX {
     /**
      * Erases all the data in the file.
      * @example
-     * const db = new JNPEX();
+     * const db = new JSPEX();
      * db.erase();
      * console.log(db.getAll()); // {}
      * console.log(db.get("name")); // null
@@ -85,7 +85,7 @@ class JNPEX {
      * Deletes a key from the file.
      * @param {string} key - The key to delete.
      * @example
-     * const db = new JNPEX();
+     * const db = new JSPEX();
      * db.set("name","John");
      * db.delete("name");
      * console.log(db.getAll()); // {age: 20}
@@ -102,7 +102,7 @@ class JNPEX {
      * @param {string} key - The key to set.
      * @param {any} value - The value to set.
      * @example
-     * const db = new JNPEX();
+     * const db = new JSPEX();
      * db.set("name","John");
      * console.log(db.getAll()); // {name: "John"}
      * console.log(db.get("name")); // "John"
@@ -117,7 +117,7 @@ class JNPEX {
      * @param {string} key - The key to update.
      * @param {function} callback - The callback to update the key.
      * @example
-     * const db = new JNPEX();
+     * const db = new JSPEX();
      * db.set("age",20);
      * db.update("age", (age) => age + 1);
      * console.log(db.getAll()); // {age: 21}
@@ -158,4 +158,4 @@ class JNPEX {
         }
     }
 }
-module.exports = JNPEX;
+module.exports = JSPEX;
