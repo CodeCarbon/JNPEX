@@ -1,6 +1,6 @@
 # JNPEX Documentation
 
-JNPEX is a JavaScript class designed to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys. This class is particularly useful for managing JSON data in file storage within Node.js applications.
+JNPEX is straight forward libary to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys.
 
 ## Installation
 
@@ -98,14 +98,6 @@ db.update("keyName", (value) => value + 1);
 
 - `key` (string): The key to update.
 - `callback` (function): The callback function to update the key value.
-
-#### `close()`
-
-Closes the file descriptor associated with the JSON file. (For testing purposes)
-
-```javascript
-db.close();
-```
 
 ## Example
 
