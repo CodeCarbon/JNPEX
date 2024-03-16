@@ -1,14 +1,33 @@
 {
   "name": "jnpex",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "JSON Local storage for quick and straightforward use cases.",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "jest "
   },
-  "author": "",
+  "author": "CodeCarbon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeCarbon/JSPEX.git"
+  },
   "license": "ISC",
+  "tags": [
+    "jnpex",
+    "json-database",
+    "json-operations",
+    "json-io",
+    "json-storage",
+    "json",
+    "file-management",
+    "data-storage",
+    "file-io",
+    "file-handling",
+    "file-operations",
+    "json-file",
+    "json-handling"
+  ],
   "devDependencies": {
     "jest": "^29.7.0"
   }
