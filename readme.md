@@ -1,19 +1,28 @@
-# JNPEX Documentation
+# JNPEX
 
-JNPEX is straight forward libary to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys.
+
+<div align="center">
+    
+[![NPM](https://nodei.co/npm/jnpex.png?)](https://npmjs.com/package/jexpex)
+
+</div>
+
+
+JNPEX is a straight forward libary to handle JSON file operations, providing functionalities to interact with JSON files such as reading, writing, updating, deleting, and checking the existence of keys.
+
 
 ## Installation
 
 You can install JNPEX via npm:
 
 ```bash
-npm install jspex
+npm install jnpex
 ```
 
 Then, require the module in your Node.js files:
 
 ```javascript
-const JNPEX = require('jspex');
+const JNPEX = require('jnpex');
 ```
 
 ## Usage
@@ -26,7 +35,7 @@ The `JNPEX` class constructor creates a new instance for JSON file operations.
 const db = new JNPEX(filePath, useCache);
 ```
 
-- `filePath` (string, optional): The path to the JSON file. If not provided, a default file named `JSPEX.JSON` will be created.
+- `filePath` (string, optional): The path to the JSON file. If not provided, a default file named `JNPEX.JSON` will be created.
 - `useCache` (boolean, optional, default: true): Specifies whether to use caching to improve performance by reducing the need to read the file every time.
 
 ### Methods
@@ -103,7 +112,7 @@ db.update("keyName", (value) => value + 1);
 
 ```javascript
 //Import the package
-const JNPEX = require('jspex');
+const JNPEX = require('jnpex');
 
 // Initialize a new JNPEX instance with a file named "contacts.json" with caching true
 const addressBook = new JNPEX("contacts.json", true); // useCache is true by default.

@@ -2,9 +2,9 @@ const fs = require('fs');
 /**
  * A class for handling JSON file operations.
  */
-class JSPEX {
+class JNPEX {
     /**
-     * Constructs a new JSPEX instance.
+     * Constructs a new JNPEX instance.
      * @param {string} filePath - The path to the JSON file.
      * @param {boolean} [useCache=true] - Whether to use caching.
      */
@@ -22,16 +22,16 @@ class JSPEX {
             };
         } else {
             try {
-                fs.accessSync("JSPEX.JSON", fs.constants.F_OK | fs.constants.W_OK | fs.constants.R_OK)
+                fs.accessSync("JNPEX.JSON", fs.constants.F_OK | fs.constants.W_OK | fs.constants.R_OK)
             } catch (err) {
                 if (err.code === "ENOENT") {
-                    fs.writeFileSync("JSPEX.JSON", "{}");
+                    fs.writeFileSync("JNPEX.JSON", "{}");
                 } else {
                     throw new Error("File being used by another program.");
                 }
             };
         }
-        this.file = fs.openSync(this.filePath ? this.filePath : "JSPEX.JSON");
+        this.file = fs.openSync(this.filePath ? this.filePath : "JNPEX.JSON");
         this.useCache = useCache;   // Prevents the need to read the file every time a method is called 
         this.cache = useCache ? this.#read() : {};
     }
@@ -40,7 +40,7 @@ class JSPEX {
      * @param {string} key - The key to check.
      * @returns {boolean} - Whether the key exists.
      * @example
-     * const db = new JSPEX();
+     * const db = new JNPEX();
      * console.log(db.keyExists("name")); // true
     */
     keyExists(key) {
@@ -50,7 +50,7 @@ class JSPEX {
     * Gets all the data from the file.
     * @returns {Object} - The data from the file.
     * @example
-    * const db = new JSPEX();
+    * const db = new JNPEX();
     * console.log(db.getAll()); // {name: "John", age: 20}
     */
     getAll() {
@@ -61,7 +61,7 @@ class JSPEX {
     * @param {string} key - The key to get the value of.
     * @returns {any} - The value of the key.
     * @example
-    * const db = new JSPEX();
+    * const db = new JNPEX();
     * console.log(db.get("name")); // "John"
     * console.log(db.get("age")); // 20
     * console.log(db.get("location")); // null
@@ -73,7 +73,7 @@ class JSPEX {
     /**
      * Erases all the data in the file.
      * @example
-     * const db = new JSPEX();
+     * const db = new JNPEX();
      * db.erase();
      * console.log(db.getAll()); // {}
      * console.log(db.get("name")); // null
@@ -85,7 +85,7 @@ class JSPEX {
      * Deletes a key from the file.
      * @param {string} key - The key to delete.
      * @example
-     * const db = new JSPEX();
+     * const db = new JNPEX();
      * db.set("name","John");
      * db.delete("name");
      * console.log(db.getAll()); // {age: 20}
@@ -102,7 +102,7 @@ class JSPEX {
      * @param {string} key - The key to set.
      * @param {any} value - The value to set.
      * @example
-     * const db = new JSPEX();
+     * const db = new JNPEX();
      * db.set("name","John");
      * console.log(db.getAll()); // {name: "John"}
      * console.log(db.get("name")); // "John"
@@ -117,7 +117,7 @@ class JSPEX {
      * @param {string} key - The key to update.
      * @param {function} callback - The callback to update the key.
      * @example
-     * const db = new JSPEX();
+     * const db = new JNPEX();
      * db.set("age",20);
      * db.update("age", (age) => age + 1);
      * console.log(db.getAll()); // {age: 21}
@@ -140,7 +140,7 @@ class JSPEX {
     #write(data) {
         try {
             const jsn = JSON.stringify(data); //
-            fs.writeFileSync(this.filePath ? this.filePath : "JSPEX.JSON", jsn);
+            fs.writeFileSync(this.filePath ? this.filePath : "JNPEX.JSON", jsn);
             if (this.useCache) this.cache = data;
         } catch (err) {
             throw err;
@@ -152,10 +152,11 @@ class JSPEX {
      */
     #read() {
         try {
-            return JSON.parse(fs.readFileSync(this.filePath ? this.filePath : "JSPEX.JSON", 'utf8'))
+            return JSON.parse(fs.readFileSync(this.filePath ? this.filePath : "JNPEX.JSON", 'utf8'))
         } catch (err) {
             throw err;
         }
     }
 }
-module.exports = JSPEX;
+
+module.exports = JNPEX;
