@@ -1,6 +1,6 @@
 {
   "name": "jnpex",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "JSON Local storage for quick and straightforward use cases.",
   "type": "commonjs",
   "main": "index.js",
